@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+  app:
+    image: golang 
+    restart: unless-stopped
+    volumes:
+      - ./certs:/certs
+      - .:/genqr
+    working_dir: /genqr
+    command: go run ./genqr.go -port=8080 -cert=/certs/server.crt -key=/certs/server.key
+    ports:
+      - 8080:8080

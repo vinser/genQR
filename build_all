@@ -1,0 +1,4 @@
+#!/bin/bash
+
+GOOS=windows GOARCH=amd64 go build -o genqr.exe genqr.go
+GOOS=linux GOARCH=arm64 go build -o genqr genqr.go
